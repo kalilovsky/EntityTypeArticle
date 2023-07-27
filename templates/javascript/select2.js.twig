@@ -1,0 +1,9 @@
+<script>
+    function initSelect2(){
+        const selectElements = document.querySelectorAll('select.select2');
+        for(const selectElement of selectElements){
+            $(selectElement).select2();
+        }
+    }
+    document.addEventListener('DOMContentLoaded',initSelect2);
+</script>

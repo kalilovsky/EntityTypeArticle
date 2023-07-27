@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add a user{% endblock %}
+
+{% block body %}
+<div class="dashboard active">
+    <div class="editPopup visible zindex1" id="editPopup">
+    {{form_start(form)}}
+        <div class="thePopup" id="thePopup">
+            <div class="title">
+                <h2>Add a worker</h2>
+                <p id="messageTxt" style="color:green">
+                    {% for message in app.flashes('success') %}
+                        {{message}}
+                    {% endfor %}
+                </p>
+                <p style="color:red">
+                    {{ form_errors(form) }}
+                </p>
+            </div>
+            <div class="body">
+                <div class="head user">
+                    <div class="leftEdit">
+                        <div class="row">
+                            {{form_label(form.firstname)}}
+                            {{form_widget(form.firstname)}}
+                            <div class="error-container">
+                                {{form_errors(form.firstname)}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            {{form_label(form.lastname)}}
+                            {{form_widget(form.lastname)}}
+                            <div class="error-container">
+                                {{form_errors(form.lastname)}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            {{form_label(form.project)}}
+                            {{form_widget(form.project)}}
+                            <div class="error-container">
+                                {{form_errors(form.project)}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="editButton">
+                    <button name="updateButton" id="updateButton">Save</button>
+                </div>
+                </div>
+        </div>
+    {{form_end(form)}}
+    </div>
+</div>
+{% endblock %}
